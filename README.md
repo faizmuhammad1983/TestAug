@@ -2,14 +2,16 @@
 
 This framework is still in progress, need more time to implement environment setup and other additional elements.
 
-what this have?
+# what this have?
+
 - Selenium - for web interaction
 - junit5 - for assertion
 - cucumber - as test runner 
 - log4j - for logging
 - sl4j - log binding dependencies
 
-How to execute?
+# How to execute?
+
 this is a gradle project, in gradle.build task for cucumber has already been added.
 task will take two inputs:
 I) for the cucumber tags - this for exclusive test case execution based on tag e.g: @web
@@ -24,7 +26,7 @@ of Env and for tags
 based on provided tags cucumber will only execute those test cases which are glued in the task 
 that is linked step definition and feature files
 
-how test cases are developed?
+# how test cases are developed?
 
 in this some aspects of page object model has been used with flavor of BBD using cucumber.
 under java/main we have PageLibrary that is basically the page object file for the
@@ -47,10 +49,12 @@ finally under test/java/resources we have feature files which are glued by cucum
 this feature files are based on gherkins language and based on their tag and description they execute their
 glued method defined in this associate step definition in this case StepDefinitions.class
 
-Report:
+# Report:
+
 default cucumber reports are utilized here 
 
-Assertion:
+# Assertion:
+
 Junit assertion were used to validate if system was able to find requested recipe
 
 
