@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="45.864">
-<testcase classname="Test addition using Google Calculator" name="find a recipe" time="45.361">
-<failure message="Expected condition failed: waiting for presence of element located by: By.xpath: //div/a[contains(@title,'asdqwwq')] (tried for 30 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException"><![CDATA[Given Navigate the browser to "https://www.allrecipes.com"..................passed
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="27.676">
+<testcase classname="Test addition using Google Calculator" name="find a recipe" time="27.181">
+<failure message="Expected condition failed: waiting for presence of element located by: By.xpath: //div/a[contains(@title,'asdqwwq')] (tried for 10 second(s) with 500 milliseconds interval)" type="org.openqa.selenium.TimeoutException"><![CDATA[Given Navigate the browser to "https://www.allrecipes.com"..................passed
 When Search field is found..................................................passed
 Then Search for "asdqwwq" , fail if nothing comes up........................failed
 
 StackTrace:
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //div/a[contains(@title,'asdqwwq')] (tried for 30 second(s) with 500 milliseconds interval)
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for presence of element located by: By.xpath: //div/a[contains(@title,'asdqwwq')] (tried for 10 second(s) with 500 milliseconds interval)
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
 	at PageLibrary.AllRecipeMainPage.searchRecipe(AllRecipeMainPage.java:38)
-	at com.Step.Definition.StepDefinitions.searchFor(StepDefinitions.java:46)
+	at com.Step.Definition.StepDefinitions.searchFor(StepDefinitions.java:43)
 	at ✽.Search for "asdqwwq" , fail if nothing comes up(file:///Users/faizmuhammad/Repository/SAF/src/test/resources/Allrecipies.feature:8)
 Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//div/a[contains(@title,'asdqwwq')]"}
   (Session info: headless chrome=92.0.4515.131)
@@ -18,8 +18,8 @@ For documentation on this error, please visit: https://www.seleniumhq.org/except
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'Faizs-MBP-2', ip: 'fe80:0:0:0:86f:d4a5:b5f1:695b%en0', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.16', java.version: '1.8.0_161'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 92.0.4515.131, chrome: {chromedriverVersion: 92.0.4515.107 (87a818b10553..., userDataDir: /var/folders/yf/vw9wfc7s7p9...}, goog:chromeOptions: {debuggerAddress: localhost:58795}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 700b649a25763e9fe9345445ebd04211
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 92.0.4515.131, chrome: {chromedriverVersion: 92.0.4515.107 (87a818b10553..., userDataDir: /var/folders/yf/vw9wfc7s7p9...}, goog:chromeOptions: {debuggerAddress: localhost:60066}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 33634091bb0ba9e4b9f49b1175f38766
 *** Element info: {Using=xpath, value=//div/a[contains(@title,'asdqwwq')]}
 	at sun.reflect.GeneratedConstructorAccessor10.newInstance(Unknown Source)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -44,7 +44,7 @@ Session ID: 700b649a25763e9fe9345445ebd04211
 	at org.openqa.selenium.support.ui.ExpectedConditions$6.apply(ExpectedConditions.java:179)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:249)
 	at PageLibrary.AllRecipeMainPage.searchRecipe(AllRecipeMainPage.java:38)
-	at com.Step.Definition.StepDefinitions.searchFor(StepDefinitions.java:46)
+	at com.Step.Definition.StepDefinitions.searchFor(StepDefinitions.java:43)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
