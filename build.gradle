@@ -1,0 +1,92 @@
+plugins {
+    id 'java'
+    id 'io.franzbecker.gradle-lombok' version '4.0.0'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+    implementation("io.github.bonigarcia:webdrivermanager:4.4.3")
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    implementation group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.31'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+    implementation("org.assertj:assertj-core:3.20.2")
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
+    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.3.1')
+    testImplementation 'io.cucumber:cucumber-java:6.10.4'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.10.4'
+    testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.8.0-M1'
+    testImplementation group: 'io.sentry', name: 'sentry', version: '4.3.0'
+    testImplementation group: 'net.masterthought', name: 'cucumber-reporting', version: '5.5.4'
+
+
+}
+
+// exclusively for junit test execution, disable this if cucumber is in use
+//test{
+//    useJUnitPlatform()
+//    testLogging.showStandardStreams = true
+//    testLogging {
+//        events 'PASSED', 'FAILED', 'SKIPPED'
+//    }
+//    reports {
+//        junitXml.enabled = false
+//        html.enabled = true
+//    }
+//    afterSuite { desc, result ->
+//        if (!desc.parent) {
+//            println "\nTest result: ${result.resultType}"
+//            println "Test summary: ${result.testCount} tests, " +
+//                    "${result.successfulTestCount} succeeded, " +
+//                    "${result.failedTestCount} failed, " +
+//                    "${result.skippedTestCount} skipped"
+//        }
+//    }
+//}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+
+
+def env=findProperty('env')
+def tags = findProperty('tags')
+task cucumber() {
+//    System.setProperty 'env', System.properties['env'] ?: "${env}"
+//    println "# test environment inside cucumber: " + System.getProperty('env')
+    dependsOn assemble, compileTestJava
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty',
+                    '--plugin', 'html:target/cucumber-reports/test-report.html',
+                    '--plugin', 'json:target/cucumber-reports/Cucumber.json',
+                    '--plugin', 'junit:target/cucumber-reports/Cucumber.xml',
+                    '--glue', 'com.Step.Definition', 'src/test/resources',
+                    '--tags', "${tags}"
+
+            ]
+            System.setProperty 'env', System.properties['env'] ?: "${env}"
+            println "# test environment inside cucumber: " + System.getProperty('env')
+
+        }
+   }
+
+}
+
+
