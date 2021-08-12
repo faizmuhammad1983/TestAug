@@ -21,13 +21,13 @@ command that will be used to execute test cases define in feature files:
 
           gradle cucumber -Penv=dev -P tags=@web 
 
-in above command we are instructing gradle to execute a task and that task is getting input
-of Env and for tags
+in above command we are instructing gradle to execute a task cucumber() and that task is getting input
+for Env and tags
 
-based on provided tags cucumber will only execute those test cases which are glued in the task 
-that is linked step definition and feature files
+based on provided tags cucumber will only execute those test cases which are glued in the task cucubmer() 
+that is further linked with step-definition and feature files
 
-# how test cases are developed?
+# How test cases are developed?
 
 in this some aspects of page object model has been used with flavor of BBD using cucumber.
 under java/main we have PageLibrary that is basically the page object file for the
