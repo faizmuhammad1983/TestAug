@@ -24,6 +24,7 @@ public class AllRecipeMainPage {
 
     public void launchURL(String URL) {
         driver.getDriver().get(URL);
+
     }
 
     public void findObjectByXpath() {

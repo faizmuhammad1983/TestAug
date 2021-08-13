@@ -1,3 +1,0 @@
-{"meta":{"protocolVersion":"15.0.0","implementation":{"name":"cucumber-jvm","version":"6.11.0"},"runtime":{"name":"Java HotSpot(TM) 64-Bit Server VM","version":"25.161-b12"},"os":{"name":"Mac OS X"},"cpu":{"name":"x86_64"}}}
-{"testRunStarted":{"timestamp":{"seconds":"1628771382","nanos":724000000}}}
-{"testRunFinished":{"success":true,"timestamp":{"seconds":"1628771382","nanos":730000000}}}

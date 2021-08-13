@@ -10,7 +10,7 @@ Feature: Test addition using Google Calculator
 
     Examples:
       | URL                           | Recipes       |
-      | https://www.allrecipes.com    | Chicken       |
+      | https://www.allrecipes.com    | Chicken Soup       |
 
 
 
