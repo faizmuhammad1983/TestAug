@@ -80,7 +80,8 @@ task cucumber() {
                     '--tags', "${tags}"
 
             ]
-            System.setProperty 'env', System.properties['env'] ?: "${env}"
+            systemProperty 'env', System.getProperty("${env}")
+            //System.setProperty 'env', System.properties['env'] ?: "${env}"
             println "# test environment inside cucumber: " + System.getProperty('env')
 
         }
