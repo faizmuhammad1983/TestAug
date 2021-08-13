@@ -15,9 +15,9 @@ This framework is still in progress, need more time to implement environment set
 this is a gradle project, in gradle.build task for cucumber has already been added.
 task will take two inputs:
 I) for the cucumber tags - this is for exclusive test case execution based on tag e.g: @web (triggered 
-by gradle reserved keyword -P)
+by gradle system properties -P)
 II) for environment capturing to setup stage or QA environment e.g: Dev (this is work in progress) (this will
-be selected by java reserved keyword -D)
+be selected by passing value to JVM using -D)
 
 command that will be used to execute test cases define in feature files:
 
