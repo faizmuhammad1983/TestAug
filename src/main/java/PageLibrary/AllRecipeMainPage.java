@@ -35,8 +35,11 @@ public class AllRecipeMainPage {
         driver.getDriver().findElement(searchBox).sendKeys(recipe);
         driver.getDriver().findElement(searchBox).sendKeys(Keys.RETURN);
         try {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div/a[contains(@title,'" + recipe + "')]")));
-            elementExist = driver.getDriver().findElement(By.xpath("//div/a[contains(@title,'" + recipe + "')]"));
+            //added case insensitive xpath to avoid any search issues
+            String caseInsensitiveXpath = "//div/a[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'"+recipe.toLowerCase()+"' )]";
+
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(caseInsensitiveXpath)));
+            elementExist = driver.getDriver().findElement(By.xpath(caseInsensitiveXpath));
         } catch (NoSuchElementException e) {
 
         }

@@ -27,6 +27,12 @@ for Env and tags
 based on provided tags cucumber will only execute those test cases which are glued in the task cucubmer() 
 that is further linked with step-definition and feature files
 
+# Headless test execution
+
+to execute test cases in headless mode just pass browserOption as true in WebSession constructor along with 
+browser of choice (chrome or firefox)
+
+
 # How test cases are developed?
 
 in this some aspects of page object model has been used with flavor of BBD using cucumber.
