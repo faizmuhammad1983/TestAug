@@ -1,6 +1,5 @@
 # TestAug
 
-This framework is still in progress, need more time to implement environment setup and other additional elements.
 
 # what this have?
 
@@ -16,12 +15,13 @@ this is a gradle project, in gradle.build task for cucumber has already been add
 task will take two inputs:
 I) for the cucumber tags - this is for exclusive test case execution based on tag e.g: @web (triggered 
 by -P)
-II) for environment capturing to setup stage or QA environment e.g: Dev (this is work in progress) (this will
-be selected by passing -P)
+II) for environment capturing to setup stage or QA environment e.g: Stage send -Penv=Stage for environment 
+attributes check property files under src/java/resources/Environments. system will automatically load all properties
+in hash map and then each loaded attribute can be call by key in map.
 
 command that will be used to execute test cases define in feature files:
 
-          gradle cucumber -Penv=QA -P tags=@web 
+          gradle cucumber -Penv=Stage -P tags=@web
 
 in above command we are instructing gradle to execute a task cucumber() and that task is getting input
 for Env and tags

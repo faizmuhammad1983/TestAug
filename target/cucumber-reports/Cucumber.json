@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-08-13T18:55:57.653Z",
+        "start_timestamp": "2021-08-13T21:26:46.021Z",
         "before": [
           {
             "result": {
-              "duration": 3166000000,
+              "duration": 2917000000,
               "status": "passed"
             },
             "match": {
@@ -22,7 +22,7 @@
         "after": [
           {
             "result": {
-              "duration": 296000000,
+              "duration": 274000000,
               "status": "passed"
             },
             "match": {
@@ -35,25 +35,19 @@
         "steps": [
           {
             "result": {
-              "duration": 11641000000,
+              "duration": 12437000000,
               "status": "passed"
             },
             "line": 6,
-            "name": "Navigate the browser to \"https://www.allrecipes.com\"",
+            "name": "Navigate the browser to application under test",
             "match": {
-              "arguments": [
-                {
-                  "val": "\"https://www.allrecipes.com\"",
-                  "offset": 24
-                }
-              ],
-              "location": "com.Step.Definition.StepDefinitions.navigateTheBrowserToURL(java.lang.String)"
+              "location": "com.Step.Definition.StepDefinitions.navigateTheBrowserToURL()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 121000000,
+              "duration": 259000000,
               "status": "passed"
             },
             "line": 7,
@@ -65,7 +59,7 @@
           },
           {
             "result": {
-              "duration": 9520000000,
+              "duration": 9293000000,
               "status": "passed"
             },
             "line": 8,

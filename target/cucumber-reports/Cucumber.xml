@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="25.379">
-<testcase classname="Test addition using Google Calculator" name="find a recipe" time="24.886">
-<system-out><![CDATA[Given Navigate the browser to "https://www.allrecipes.com"..................passed
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="25.805">
+<testcase classname="Test addition using Google Calculator" name="find a recipe" time="25.301">
+<system-out><![CDATA[Given Navigate the browser to application under test........................passed
 When Search field is found..................................................passed
 Then Search for "Chicken Soup" , fail if nothing comes up...................passed
 ]]></system-out>

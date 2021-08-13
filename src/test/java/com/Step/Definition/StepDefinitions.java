@@ -27,9 +27,9 @@ public class StepDefinitions {
         allRecipeMainPage = new AllRecipeMainPage(driver, 10);
     }
 
-    @Given("Navigate the browser to {string}")
-    public void navigateTheBrowserToURL(String arg0) {
-        allRecipeMainPage.launchURL(arg0);
+    @Given("Navigate the browser to application under test")
+    public void navigateTheBrowserToURL() {
+        allRecipeMainPage.launchURL();
     }
 
 
