@@ -14,12 +14,14 @@ This framework is still in progress, need more time to implement environment set
 
 this is a gradle project, in gradle.build task for cucumber has already been added.
 task will take two inputs:
-I) for the cucumber tags - this for exclusive test case execution based on tag e.g: @web
-II) for environment capturing to setup stage or QA environment e.g: Dev (this is work in progress)
+I) for the cucumber tags - this is for exclusive test case execution based on tag e.g: @web (triggered 
+by gradle reserved keyword -P)
+II) for environment capturing to setup stage or QA environment e.g: Dev (this is work in progress) (this will
+be selected by java reserved keyword -D)
 
 command that will be used to execute test cases define in feature files:
 
-          gradle cucumber -Penv=dev -P tags=@web 
+          gradle cucumber -Denv=dev -P tags=@web 
 
 in above command we are instructing gradle to execute a task cucumber() and that task is getting input
 for Env and tags
