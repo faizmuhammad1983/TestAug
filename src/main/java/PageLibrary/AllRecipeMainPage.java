@@ -1,7 +1,8 @@
 package PageLibrary;
 
-import Configuration.Utilities.PropertyReader;
-import Configuration.WebSession;
+
+import Utilities.*;
+import Configuration.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -32,8 +33,15 @@ public class AllRecipeMainPage {
         //System.out.println(hs.get("URL"));
     }
 
-    public void findObjectByXpath() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(searchBox));
+    public boolean findObjectByXpath() {
+        boolean isExists = true;
+        try {
+            wait.until(ExpectedConditions.presenceOfElementLocated(searchBox));
+        } catch (NoSuchElementException e) {
+            isExists = false;
+        }
+        return isExists;
+
     }
 
     public WebElement searchRecipe(String recipe) {
