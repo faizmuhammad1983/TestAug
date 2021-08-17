@@ -22,12 +22,11 @@ dependencies {
     implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
     testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
-    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.3.1')
     testImplementation 'io.cucumber:cucumber-java:6.10.4'
     testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '6.10.4'
-    testImplementation group: 'org.junit.vintage', name: 'junit-vintage-engine', version: '5.8.0-M1'
-    testImplementation group: 'io.sentry', name: 'sentry', version: '4.3.0'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit-platform-engine', version: '6.11.0'
     testImplementation group: 'net.masterthought', name: 'cucumber-reporting', version: '5.5.4'
+
 
 
 }
@@ -54,6 +53,9 @@ dependencies {
 //    }
 //}
 
+
+
+
 configurations {
     cucumberRuntime {
         extendsFrom testImplementation
@@ -62,17 +64,18 @@ configurations {
 
 
 
-def env=findProperty('env')
+
 def tags = findProperty('tags')
+def threads = findProperty('threads')
 task cucumber() {
-//    System.setProperty 'env', System.properties['env'] ?: "${env}"
-//    println "# test environment inside cucumber: " + System.getProperty('env')
     dependsOn assemble, compileTestJava
     doLast {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty',
+            args = [
+                    '--threads' , "${threads}",
+                    '--plugin', 'pretty',
                     '--plugin', 'html:target/cucumber-reports/test-report.html',
                     '--plugin', 'json:target/cucumber-reports/Cucumber.json',
                     '--plugin', 'junit:target/cucumber-reports/Cucumber.xml',
@@ -80,10 +83,6 @@ task cucumber() {
                     '--tags', "${tags}"
 
             ]
-           // systemProperty 'env', System.getProperty("${env}")
-
-            //println "# test environment inside cucumber: " + System.getProperty('env')
-           // systemProperties = System.properties
 
             systemProperty "env", project.getProperty("env")
         }
@@ -91,8 +90,3 @@ task cucumber() {
 
 }
 
-
-test{
-    println "Starting Tests"
-    println System.getProperty("mymessage") ? System.getProperty("mymessage") : 'no message'
-}

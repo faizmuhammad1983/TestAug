@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class StepDefinitions {
+public class StepExecution {
     private WebSession driver;
     AllRecipeMainPage allRecipeMainPage;
 
@@ -21,7 +21,7 @@ public class StepDefinitions {
 
     }
 
-    @Before("@web")
+    @Before("@web or @same")
     public void setup() {
         driver = new WebSession(Constants.Browser.CHROME,true);
         allRecipeMainPage = new AllRecipeMainPage(driver, 10);
@@ -35,7 +35,8 @@ public class StepDefinitions {
 
     @When("Search field is found")
     public void objectWithAvailable() {
-        allRecipeMainPage.findObjectByXpath();
+        boolean result = allRecipeMainPage.findObjectByXpath();
+        assertTrue(result);
     }
 
     @Then("Search for {string} , fail if nothing comes up")
@@ -46,7 +47,7 @@ public class StepDefinitions {
     }
 
 
-    @After("@web")
+    @After("@web or @same")
     public void end() {
         driver.getDriver().close();
         driver.getDriver().quit();

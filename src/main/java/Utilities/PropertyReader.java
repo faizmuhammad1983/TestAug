@@ -7,35 +7,33 @@ import java.util.Map.Entry;
 import java.util.Properties;
 
 public class PropertyReader {
-    private String propertyName = null;
-    private Properties props;
 
-//This is constructor to pass property file name during object creation.
+    private String propertyFileName = null;
+    private Properties properties;
 
-    public PropertyReader (String propertyName){
-        this.propertyName = propertyName;
+
+    public PropertyReader(String propertyFileName) {
+        this.propertyFileName = propertyFileName;
     }
 
-    //private method created to load property file
-    private void loadProperty() {
-//propertyName is fileName
+
+    private void readProperty() {
+
         try {
-            props = new Properties();
-            FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "Environments" + File.separator +propertyName + ".properties");
-            props.load(fis);
-        }
-        catch (Exception e){
+            properties = new Properties();
+            FileInputStream fileInputStream = new FileInputStream(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources" + File.separator + "Environments" + File.separator + propertyFileName + ".properties");
+            properties.load(fileInputStream);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-//Public method created to access outside class.This method load property file and store Property file data in HashMap
 
-    public HashMap<String, String> getPropertyAsHashMap(){
-        loadProperty();
+    public HashMap<String, String> getPropertyAsHashMap() {
+        readProperty();
         HashMap<String, String> map = new HashMap<String, String>();
 
-        for (Entry<Object, Object> entry : props.entrySet()){
+        for (Entry<Object, Object> entry : properties.entrySet()) {
             map.put((String) entry.getKey(), (String) entry.getValue());
         }
         return map;

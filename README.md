@@ -14,14 +14,15 @@
 this is a gradle project, in gradle.build task for cucumber has already been added.
 task will take two inputs:
 I) for the cucumber tags - this is for exclusive test case execution based on tag e.g: @web (triggered 
-by -P)
+by -P) you can provide multiple tags "@tag1 and/or @tag2"
 II) for environment capturing to setup stage or QA environment e.g: Stage send -Penv=Stage for environment 
 attributes check property files under src/java/resources/Environments. system will automatically load all properties
 in hash map and then each loaded attribute can be call by key in map.
+III) for parallel execution use -P threads=x where x>0
 
 command that will be used to execute test cases define in feature files:
 
-          gradle cucumber -Penv=Stage -P tags=@web
+          gradle cucumber -Penv=Stage -P tags="@same or @web" -P threads=2
 
 in above command we are instructing gradle to execute a task cucumber() and that task is getting input
 for Env and tags
