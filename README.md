@@ -1,4 +1,5 @@
-# TestAug
+# Cucumber with Gradle using cucumber task
+This repository contains basic project that uses cucumber with gradle. 
 
 
 # what this have?

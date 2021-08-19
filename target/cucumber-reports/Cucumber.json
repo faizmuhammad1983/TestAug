@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-08-17T19:26:10.678Z",
+        "start_timestamp": "2021-08-19T12:50:12.569Z",
         "before": [
           {
             "result": {
-              "duration": 2728000000,
+              "duration": 10047000000,
               "status": "passed"
             },
             "match": {
@@ -22,7 +22,7 @@
         "after": [
           {
             "result": {
-              "duration": 278000000,
+              "duration": 222000000,
               "status": "passed"
             },
             "match": {
@@ -35,7 +35,7 @@
         "steps": [
           {
             "result": {
-              "duration": 18456000000,
+              "duration": 1893000000,
               "status": "passed"
             },
             "line": 6,
@@ -47,7 +47,7 @@
           },
           {
             "result": {
-              "duration": 545000000,
+              "duration": 59000000,
               "status": "passed"
             },
             "line": 7,
@@ -59,15 +59,15 @@
           },
           {
             "result": {
-              "duration": 17020000000,
+              "duration": 2583000000,
               "status": "passed"
             },
             "line": 8,
-            "name": "Search for \"Chicken Soup\" , fail if nothing comes up",
+            "name": "Search for \"String 1\" , fail if nothing comes up",
             "match": {
               "arguments": [
                 {
-                  "val": "\"Chicken Soup\"",
+                  "val": "\"String 1\"",
                   "offset": 11
                 }
               ],
@@ -83,11 +83,11 @@
         ]
       },
       {
-        "start_timestamp": "2021-08-17T19:26:10.680Z",
+        "start_timestamp": "2021-08-19T12:50:12.566Z",
         "before": [
           {
             "result": {
-              "duration": 2726000000,
+              "duration": 10032000000,
               "status": "passed"
             },
             "match": {
@@ -102,7 +102,7 @@
         "after": [
           {
             "result": {
-              "duration": 384000000,
+              "duration": 149000000,
               "status": "passed"
             },
             "match": {
@@ -115,7 +115,7 @@
         "steps": [
           {
             "result": {
-              "duration": 17277000000,
+              "duration": 1942000000,
               "status": "passed"
             },
             "line": 18,
@@ -127,7 +127,7 @@
           },
           {
             "result": {
-              "duration": 417000000,
+              "duration": 51000000,
               "status": "passed"
             },
             "line": 19,
@@ -139,7 +139,7 @@
           },
           {
             "result": {
-              "duration": 16126000000,
+              "duration": 3721000000,
               "status": "passed"
             },
             "line": 20,
@@ -167,7 +167,7 @@
     "description": "",
     "id": "test-addition-using-google-calculator",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/Allrecipies.feature",
+    "uri": "file:src/test/resources/testModules.feature",
     "tags": []
   }
 ]
