@@ -1,4 +1,4 @@
-package Configuration;
+package Web.Configuration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -6,29 +6,30 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import java.util.List;
+
 
 public class WebSession {
 
     private Constants.Browser browserName;
-    private boolean browserOption;
+
     private EventFiringWebDriver Driver;
    // private Logger log;
 
+    private List<String> addArguments;
 
-    public WebSession(Constants.Browser browserName, boolean browserOption) {
+
+    public WebSession(Constants.Browser browserName, List<String> arguments) {
         this.browserName = browserName;
-        this.browserOption = browserOption;
+
+        this.addArguments = arguments;
       //  this.log = Logger.getLogger("devpinoyLogger");
 
         if (browserName.equals(Constants.Browser.CHROME)) {
 
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-
-            if (browserOption) {
-                options.addArguments("--headless", "--window-size=1920,1080", "--disable-gpu", "--disable-extensions", "--no-sandbox", "--incognito");
-            }
-
+            options.addArguments(addArguments);
 
             WebDriver webDriver = new ChromeDriver(options);
             this.Driver = new EventFiringWebDriver(webDriver);

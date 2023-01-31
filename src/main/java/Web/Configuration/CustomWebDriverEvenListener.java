@@ -1,4 +1,4 @@
-package Configuration;
+package Web.Configuration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;

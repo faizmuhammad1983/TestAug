@@ -1,7 +1,7 @@
 package com.Step.Definition;
 
-import Configuration.Constants;
-import Configuration.WebSession;
+import Web.Configuration.Constants;
+import Web.Configuration.WebSession;
 import PageLibrary.testPageObject;
 import io.cucumber.java.After;
 import io.cucumber.java.*;
@@ -9,6 +9,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
+
+import java.util.Arrays;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -23,7 +26,7 @@ public class StepExecution {
 
     @Before("@web or @same")
     public void setup() {
-        driver = new WebSession(Constants.Browser.CHROME,true);
+        driver = new WebSession(Constants.Browser.CHROME, Arrays.asList("--headless", "--window-size=1920,1080", "--disable-gpu", "--disable-extensions", "--no-sandbox", "--incognito"));
         testPageObject = new testPageObject(driver, 10);
     }
 
