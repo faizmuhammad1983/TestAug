@@ -1,4 +1,4 @@
-package Configuration;
+package Web.Configuration;
 
 public class Constants {
 
