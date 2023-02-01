@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import java.sql.Driver;
 import java.util.List;
 
 
@@ -13,7 +14,7 @@ public class WebSession {
 
     private Constants.Browser browserName;
 
-    private EventFiringWebDriver Driver;
+    private EventFiringWebDriver driver;
    // private Logger log;
 
     private List<String> addArguments;
@@ -32,10 +33,10 @@ public class WebSession {
             options.addArguments(addArguments);
 
             WebDriver webDriver = new ChromeDriver(options);
-            this.Driver = new EventFiringWebDriver(webDriver);
+            this.driver = new EventFiringWebDriver(webDriver);
 
             CustomWebDriverEvenListener listener = new CustomWebDriverEvenListener();
-            Driver.register(listener);
+            driver.register(listener);
 
 
         } else {
@@ -55,7 +56,7 @@ public class WebSession {
 
 
     public EventFiringWebDriver getDriver() {
-        return Driver;
+        return driver;
     }
 
 //    public Logger getLog() {

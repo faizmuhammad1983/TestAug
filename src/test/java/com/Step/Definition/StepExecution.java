@@ -52,7 +52,6 @@ public class StepExecution {
 
     @After("@web or @same")
     public void end() {
-        driver.getDriver().close();
         driver.getDriver().quit();
 
     }

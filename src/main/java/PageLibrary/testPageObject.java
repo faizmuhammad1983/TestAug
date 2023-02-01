@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.HashMap;
 
 public class testPageObject {
@@ -21,7 +22,7 @@ public class testPageObject {
 
     public testPageObject(WebSession driver, int explicitWait) {
         this.driver = driver;
-        wait = new WebDriverWait(driver.getDriver(), explicitWait);
+        wait = new WebDriverWait(driver.getDriver(), Duration.ofSeconds(explicitWait));
         PropertyReader pr= new PropertyReader(System.getProperty("env"));
         hs = pr.getPropertyAsHashMap();
 
