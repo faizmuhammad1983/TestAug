@@ -1,4 +1,4 @@
-Feature: Test addition using Google Calculator
+Feature: Example tests
 
 
 @web
@@ -23,3 +23,8 @@ Feature: Test addition using Google Calculator
     Examples:
       | text1                     |
       | Software Engineering      |
+
+  @mobile
+  Scenario: Launch mobile app
+    Given Launch app and go to preference
+    Then End session

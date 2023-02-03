@@ -9,7 +9,6 @@ public class Constants {
         Android, iOS
     }
 
-
     public Constants() {
     }
 }
