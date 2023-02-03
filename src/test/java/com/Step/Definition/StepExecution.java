@@ -1,7 +1,7 @@
 package com.Step.Definition;
 
-import Web.Configuration.Constants;
-import Web.Configuration.WebSession;
+import Configuration.Constants;
+import Configuration.Web.WebSession;
 import PageLibrary.testPageObject;
 import io.cucumber.java.After;
 import io.cucumber.java.*;

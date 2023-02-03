@@ -2,7 +2,7 @@ package PageLibrary;
 
 
 import Utilities.*;
-import Web.Configuration.WebSession;
+import Configuration.Web.WebSession;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
