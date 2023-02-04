@@ -1,10 +1,12 @@
 package Configuration;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -19,6 +21,7 @@ public class Session {
     private Constants.Browser browserName;
     private Constants.MobileOS MobileOS;
     private WebDriver webDriver, mobileDriver;
+
     private List<String> addArguments;
     private URL serverURL;
     private String appPath, deviceName;
@@ -53,21 +56,26 @@ public class Session {
             UiAutomator2Options options = new UiAutomator2Options();
             options.setDeviceName(deviceName);
             options.setApp(appPath);
-            WebDriver original = new AndroidDriver(serverURL,options);
-            WebDriverListener listener = new CustomSessionListener();
-            this.mobileDriver = new EventFiringDecorator(listener).decorate(original);
+            this.mobileDriver = new AndroidDriver(serverURL,options);
+
+//            WebDriverListener listener = new CustomSessionListener();
+//            this.mobileDriver = new EventFiringDecorator(listener).decorate(original);
         } else if(mobileOS.equals(Constants.MobileOS.iOS)){
             XCUITestOptions options = new XCUITestOptions();
             options.setDeviceName(deviceName);
             options.setApp(appPath);
-            WebDriver original = new IOSDriver(serverURL,options);
-            WebDriverListener listener = new CustomSessionListener();
-            this.mobileDriver = new EventFiringDecorator(listener).decorate(original);
+            this.mobileDriver = new IOSDriver(serverURL,options);
+//            WebDriverListener listener = new CustomSessionListener();
+//            this.mobileDriver = new EventFiringDecorator(listener).decorate(original);
         } else {
             System.out.println("Wrong mobile OS selected");
         }
     }
-    public WebDriver getMobileDriver() { return mobileDriver; }
+
+    public WebDriver getMobileDriver() {
+        return mobileDriver;
+    }
+
     public WebDriver getWebDriver() {
         return webDriver;
     }
