@@ -23,8 +23,8 @@ public class MobileTestSuite {
 
     @Before("@mobile")
     public void setup() throws MalformedURLException {
-        driver = new Session(Constants.MobileOS.Android, new URL("http://localhost:4723"), appPath,deviceName);
-        testMobileObject = new TestMobileAppObject(driver, 10);
+        driver = new Session(Constants.MobileOS.Android, new URL("http://localhost:4723"), appPath,deviceName, 10);
+        testMobileObject = new TestMobileAppObject(driver);
     }
 
     @Given("Launch app and go to preference")
@@ -34,7 +34,7 @@ public class MobileTestSuite {
 
     @Then("End session")
     public void endSession(){
-        driver.getMobileDriver().quit();
+        driver.getAndroidDriver().quit();
     }
 
 //    @When("Search field is found")

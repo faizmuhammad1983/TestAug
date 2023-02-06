@@ -26,8 +26,8 @@ public class WebTestSuite {
 
     @Before("@web or @same")
     public void setup() {
-        driver = new Session(Constants.Browser.CHROME, Arrays.asList("--headless", "--window-size=1920,1080", "--disable-gpu", "--disable-extensions", "--no-sandbox", "--incognito"));
-        TestWebPageObject = new TestWebPageObject(driver, 10);
+        driver = new Session(Constants.Browser.CHROME, Arrays.asList("--headless", "--window-size=1920,1080", "--disable-gpu", "--disable-extensions", "--no-sandbox", "--incognito"), 10);
+        TestWebPageObject = new TestWebPageObject(driver);
     }
 
     @Given("Navigate the browser to application under test")

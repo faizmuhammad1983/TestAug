@@ -16,15 +16,16 @@ public class TestMobileAppObject {
     private String preferenceButton = "//android.widget.TextView[@content-desc=\"Preference\"]";
 
 
-    public TestMobileAppObject(Session driver, int explicitWait) {
+    public TestMobileAppObject(Session driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver.getMobileDriver(), Duration.ofSeconds(explicitWait));
+        wait = driver.getWait();
         PropertyReader pr= new PropertyReader(System.getProperty("env"));
         hs = pr.getPropertyAsHashMap();
     }
 
     public void openPreferences() {
-        driver.getMobileDriver().findElement(AppiumBy.xpath(preferenceButton)).click();
+
+        driver.getAndroidDriver().findElement(AppiumBy.xpath(preferenceButton)).click();
         //System.out.println(hs.get("URL"));
     }
 

@@ -3,6 +3,8 @@ package PageLibrary.Web;
 
 import Utilities.*;
 import Configuration.Session;
+import io.appium.java_client.AppiumFluentWait;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
@@ -20,9 +22,9 @@ public class TestWebPageObject {
     private By searchBox = By.xpath("//input[contains(@name,'q')]");
 
 
-    public TestWebPageObject(Session driver, int explicitWait) {
+    public TestWebPageObject(Session driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver.getWebDriver(), Duration.ofSeconds(explicitWait));
+        wait = driver.getWait();
         PropertyReader pr= new PropertyReader(System.getProperty("env"));
         hs = pr.getPropertyAsHashMap();
 

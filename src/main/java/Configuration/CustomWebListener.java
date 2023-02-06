@@ -5,10 +5,10 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverListener;
 
-public class CustomSessionListener implements WebDriverListener {
+public class CustomWebListener implements WebDriverListener {
 
-    Logger log = Logger.getLogger("Session");
-    public CustomSessionListener() {
+    Logger log = Logger.getLogger("CustomSessionListener");
+    public CustomWebListener() {
     }
     @Override
     public void beforeGet(WebDriver driver, String url) {
